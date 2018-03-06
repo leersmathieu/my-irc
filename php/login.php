@@ -20,13 +20,13 @@
 
         }
         else {
-            // si info non valide, on utilise alors un petit javascript lui signalant ce fait
+            // si info non valide, on utilise alors un petit script pour alerter
             echo '<body onLoad="alert(\'Membre non reconnu...\')">';
         
         }
     }
     // else {
-    //     echo 'Les variables du formulaire ne sont pas déclarées.';
+    //     echo 'variables non déclarées.';
     // }
 
 ?>
