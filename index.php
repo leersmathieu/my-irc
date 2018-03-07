@@ -1,5 +1,20 @@
 <?php
     session_start();
+    $servername = "localhost";
+    $username = "root";
+    $password = "root";
+
+    try {
+        $conn = new PDO("mysql:host=$servername;dbname=irc", $username, $password);
+        // set the PDO error mode to exception
+        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        // echo "Connected successfully";
+        }
+    catch(PDOException $e)
+        {
+        echo "Connection failed: " . $e->getMessage();
+        }
+
 ?>
 
 <!DOCTYPE html>
@@ -14,17 +29,20 @@
 <body>
                         <!-- LOGIN -->
     <?php if (!isset($_SESSION['login']) && !isset($_SESSION['pwd'])): ?>
-        <section class="login">
-            <?php require "php/login.php" ?>
-        </section>
+        <header>
+            <section class="login">
+                <?php require "php/login.php" ?>
+            </section>
+            <section class="register">
+                <?php require "php/register.php" ?>
+            </section>
+        </header>
     <?php endif; ?>
                         <!-- IRC -->
     <?php if (isset($_SESSION['login']) && isset($_SESSION['pwd'])): ?>
         <section class="chat">
             <?php require "php/chat.php" ?>
-                <div class="disconnect">
-                    <?php require "php/exit.php" ?>
-                </div>
+            <?php require "php/exit.php" ?>
         </section>
     <?php endif; ?>
 

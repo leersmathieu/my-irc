@@ -9,9 +9,19 @@
         <?php
             echo "Lancement Chat"."<br />";
 
-            if (isset($_POST['message']) ){
-                $message = $_POST['message'];
-                echo $message;
+            if (!empty($_POST['message'])){
+
+                $msg = $_POST['message'];
+                echo $msg;
+
+                $request = $conn->prepare("INSERT INTO message 
+                                        (msg, user_id) 
+                                        VALUES( ?, ?)");
+
+                $request->execute(array($msg, 2
+                ));
+
+               
             }
         ?>
     </ol>

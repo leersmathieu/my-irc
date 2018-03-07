@@ -1,5 +1,33 @@
 /* my css */
+header {
+    background-color: blue;
+    height: 30vh;
+    /* display: flex; */
+    width: 80vw;
+    margin: 0 auto;
+}
 
+.login {
+    float: left;
+    display: flex;
+    height: 100%;
+    background-color: red;
+    align-items: center;
+    text-align: right;
+    width: 30%;
+    padding: 10px;
+}
+.register {
+    float: right;
+    display: flex;
+    height: 100%;
+    background-color: red;
+    align-items: center;
+    text-align: right;
+    width: 30%;
+    justify-content: right;
+    padding: 10px;
+}
 /* Code form codepen.io */
 
 @import url(https://fonts.googleapis.com/css?family=Lato:100,300,400,700);
