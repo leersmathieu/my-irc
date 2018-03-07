@@ -15,6 +15,17 @@
         echo "Connection failed: " . $e->getMessage();
         }
 
+
+        function isconnected(){
+            if (!isset($_SESSION['login']) OR !isset($_SESSION['pwd'])){
+                return False;
+            }
+            if (empty($_SESSION['login']) OR empty($_SESSION['pwd'])){
+                return False;
+            }
+            return True;
+
+        }
 ?>
 
 <!DOCTYPE html>
@@ -27,24 +38,34 @@
     <title>My IRC</title>
 </head>
 <body>
-                        <!-- LOGIN -->
-    <?php if (!isset($_SESSION['login']) && !isset($_SESSION['pwd'])): ?>
-        <header>
-            <section class="login">
-                <?php require "php/login.php" ?>
+    <div class="chat">                 <!-- LOGIN -->
+        <?php if (!isconnected()): ?>
+            <header>
+                <section class="login">
+                    <?php require "php/login.php" ?>
+                </section>
+                <section class="register">
+                    <?php require "php/register.php" ?>
+                </section>
+            </header>
+        <?php endif; ?>
+                            <!-- IRC -->
+        <?php if (isconnected()): ?>
+            <div class="menu-icon">
+                <?php require "php/exit.php" ?>
+            </div>
+            <section>
+                <?php require "php/chat.php" ?>
+                
             </section>
-            <section class="register">
-                <?php require "php/register.php" ?>
-            </section>
-        </header>
-    <?php endif; ?>
-                        <!-- IRC -->
-    <?php if (isset($_SESSION['login']) && isset($_SESSION['pwd'])): ?>
-        <section class="chat">
-            <?php require "php/chat.php" ?>
-            <?php require "php/exit.php" ?>
-        </section>
-    <?php endif; ?>
-
+        <?php endif; ?>
+            <?php print_r($_SESSION);
+            if (isconnected()){
+                echo "connected";
+            }
+            else {
+                echo "no connected";
+            } ?>    
+    </div> 
 </body>
 </html>

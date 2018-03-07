@@ -1,16 +1,24 @@
 <?php
     
 
-    // on teste si nos variables sont définies
+   
     if (isset($_POST['register'])){
 
-        // on vérifie les informations du formulaire, si pseudo et pwd ok ...
         if (isset($_POST['loginreg']) AND isset($_POST['pwdreg'])) {
             
             $login_register = $_POST['loginreg'];
             $pwd_register = $_POST['pwdreg'];
+            $pseudo = $_POST['pseudo'];
 
+            $registration = $conn->prepare("INSERT INTO user 
+                                        (name, mdp, pseudo) 
+                                        VALUES(?, ?, ?)");
 
+                $registration->execute(array(
+                    $login_register,
+                    $pwd_register,
+                    $pseudo
+                ));
            
 
         }
