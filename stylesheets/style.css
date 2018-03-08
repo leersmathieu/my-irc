@@ -4,9 +4,8 @@
 
 header {
   background-color: #202020;
-  width: 100%;
   margin: 0 auto;
-  height: 50vh;
+  height: 400px;
   padding: 6px 10px;
   border-radius: 10px 10px 0px 0px; }
   header .login {
@@ -23,9 +22,21 @@ header {
     header .login form {
       display: inline-grid;
       text-align: center;
-      height: 200px; }
+      height: 300px; }
       header .login form label {
-        background-color: #39caad; }
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        background-color: gray;
+        border-radius: 5px;
+        display: flex; }
+      header .login form input {
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        background-color: white;
+        border-radius: 5px;
+        display: flex; }
   header .register {
     float: right;
     display: flex;
@@ -40,9 +51,21 @@ header {
     header .register form {
       display: inline-grid;
       text-align: center;
-      height: 200px; }
+      height: 300px; }
       header .register form label {
-        background-color: #39caad; }
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        background-color: gray;
+        border-radius: 5px;
+        display: flex; }
+      header .register form input {
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        background-color: white;
+        border-radius: 5px;
+        display: flex; }
   header img {
     width: 30%;
     height: 100%; }

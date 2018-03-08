@@ -3,11 +3,30 @@
     margin: 0;
 }
 
+// $border
+
+
+@mixin border($color) {
+    
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    background-color: $color;
+    border-radius: 5px;
+    display: flex;
+}
+
+@mixin form-input(){
+    display: inline-grid;
+    text-align: center;
+    height: 300px;
+}
+
 header {
     background-color: rgb(32, 32, 32);
-    width: 100%;
+    // width: 100%;
     margin: 0 auto;
-    height: 50vh;
+    height: 400px;
     padding: 6px 10px;
     border-radius: 10px 10px 0px 0px;
     .login {
@@ -22,11 +41,12 @@ header {
         padding: 10px;
         border-radius: 10px 0px 0px 10px;
         form {
-            display: inline-grid;
-            text-align: center;
-            height: 200px;
+            @include form-input();
             label {
-                background-color: #39caad;
+                @include border(gray);
+            }
+            input {
+                @include border(white);
             }
 
         }
@@ -45,11 +65,12 @@ header {
         padding: 10px;
         border-radius: 0px 10px 10px 0px;
         form {
-            display: inline-grid;
-            text-align: center;
-            height: 200px;
+            @include form-input();
             label {
-                background-color: #39caad;
+                @include border(gray);
+            }
+            input {
+                @include border(white);
             }
         }
     }

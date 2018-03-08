@@ -6,16 +6,21 @@
     $request->execute(array($_POST['login'],$_POST['pwd']));
     $number = $request->fetchColumn();
     
+$request = $conn->prepare("SELECT pseudo
+                            FROM user
+                            WHERE name = ? AND mdp = ?");
+$request->execute(array($_POST['login'],$_POST['pwd']));
 
-   
+$table_pseudo=$request->fetchAll(PDO::FETCH_ASSOC);
+// print_r($table_pseudo);
+
+
     
-    // on teste si nos variables sont définies
-    if ( isset($_POST['connection']))
-     {
+    if ( isset($_POST['connection'])){
+
          if( $number > 0) {
 
-        // on vérifie les informations du formulaire, si pseudo et pwd ok ...
-            echo $number;
+            // echo $number;
             
             // on démarre la session
             // session_start ();
@@ -24,6 +29,9 @@
             // on enregistre les paramètres dans des variables
             $_SESSION['login'] = $_POST['login'];
             $_SESSION['pwd'] = $_POST['pwd'];
+            $_SESSION['pseudo'] = $table_pseudo[0]['pseudo'];
+            // print_r ($_SESSION['pseudo']);
+            
 
             header ('location: index.php');
     }

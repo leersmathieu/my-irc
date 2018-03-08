@@ -1,31 +1,5 @@
 <?php
-    session_start();
-    $servername = "localhost";
-    $username = "root";
-    $password = "root";
-
-    try {
-        $conn = new PDO("mysql:host=$servername;dbname=irc", $username, $password);
-        // set the PDO error mode to exception
-        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        // echo "Connected successfully";
-        }
-    catch(PDOException $e)
-        {
-        echo "Connection failed: " . $e->getMessage();
-        }
-
-
-        function isconnected(){
-            if (!isset($_SESSION['login']) OR !isset($_SESSION['pwd'])){
-                return False;
-            }
-            if (empty($_SESSION['login']) OR empty($_SESSION['pwd'])){
-                return False;
-            }
-            return True;
-
-        }
+   require "php/config.php"
 ?>
 
 <!DOCTYPE html>
@@ -67,21 +41,14 @@
                 </section>
                 <div class='send'>
                     <form action="" method="post" name="sending">
-                        <input class="textarea" type="text" placeholder="Type here!" name="message" />
+                        <input class="textarea" type="text" placeholder="Type here!" name="message" autofocus/>
                         <!-- <input type="submit" name="send" value="envoyer"> -->
                         <div class="emojis"></div>
                     </form>
                 </div>
             <?php endif; ?>
             <footer>
-                <?php 
-                    if (isconnected()){
-                        echo "connected";
-                    }
-                    else {
-                        echo "not connected";
-                    }
-                ?>
+                <?php require "php/footer.php" ?>
             </footer>
         </div>
     </body>

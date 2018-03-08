@@ -1,11 +1,6 @@
-<form action="" method="post" name="disconnect">
-    <input type="submit" value="Disconnect" name="dc">
-</form>
 <?php
     if (isset($_POST['dc'])){
 
-        // session_start ();
-        
         // On détruit les variables de notre session
         session_unset ();
 
@@ -17,4 +12,8 @@
         header ('location: index.php');
     }
 ?>
+
+<form action="" method="post" name="disconnect">
+    <input type="submit" value="Disconnect" name="dc">
+</form>
 
