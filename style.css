@@ -1,10 +1,17 @@
-/* my css */
+
 header {
-    background-color: blue;
+    background-color: rgb(32, 32, 32);
     height: 30vh;
     /* display: flex; */
     width: 80vw;
     margin: 0 auto;
+    height: 50vh;
+    padding: 5px 10px
+}
+
+body {
+    background: rgb(101, 124, 153);
+    font-family: 'Roboto';
 }
 
 .login {
@@ -14,7 +21,7 @@ header {
     background-color: red;
     align-items: center;
     text-align: right;
-    width: 30%;
+    width: 35%;
     padding: 10px;
 }
 .register {
@@ -24,11 +31,10 @@ header {
     background-color: red;
     align-items: center;
     text-align: right;
-    width: 30%;
+    width: 35%;
     justify-content: right;
     padding: 10px;
 }
-/* Code form codepen.io */
 
 @import url(https://fonts.googleapis.com/css?family=Roboto:300,400,900);
 @import url(http://weloveiconfonts.com/api/?family=entypo);
@@ -41,25 +47,17 @@ header {
     margin: 0;
 }
 
-body {
-    background: #BDC1C6;
-    font-family: 'Roboto';
-}
+
 
 p {
     font-weight: 300;
 }
 
 .chat {
-    width: 50vw;
-    background: #fff;
+    width: 75vw;
+    background-color: rgb(199, 199, 199);
     margin: 0 auto;
-}
-
-header {
-    background: #35323C;
-    height: 50px;
-    padding: 5px 10px;
+    height: 90vh;
 }
 
 .menu-icon {
@@ -90,7 +88,7 @@ h1 {
     background: rgb(57, 202, 173);
     color: #fff;
     text-align: center;
-    padding: 20px;
+    padding: 2px;
 }
 
 .new:hover {
@@ -98,37 +96,30 @@ h1 {
     background: rgba(57, 202, 173, 0.9);
 }
 
-.messages {
-    padding: 10px;
-}
-
 .message {
     float: left;
     width: 100%;
-    margin: 10px 0;
+    height: 80%;
+    /* margin: 10px 0; */
     border-bottom: 1px solid #ccc;
+    margin-left: 20px;
 }
 
 .message p {
     font-size: 0.8em;
     width: 90%;
     margin: 5px 0;
+    margin-left: 60px;
+    background-color: #fff;
+    padding: 5px;
 }
 
-img {
-    border-radius: 100%;
-    float: left;
-    margin: 0 10px 15px 0;
-}
 
-p.time {
-    color: rgba(0, 0, 0, 0.5);
-    font-weight: 400;
-}
 
 h2 {
     font-size: 1em;
     font-weight: 400;
+    margin-left: 30px;
 }
 
 h2:after {
@@ -143,13 +134,11 @@ h2:after {
 
 footer {
     width: 100%;
-    background: #fff;
+    height: 10%;
+    background: rgb(200, 167, 18);
     padding: 10px;
     text-align: center;
     font-size: 0.8em;
+    display: flex;
 }
 
-footer p:before,
-footer p:after {
-    content: ' - ';
-}
