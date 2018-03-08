@@ -34,8 +34,11 @@
 
 ?>
 <form action="" method="post">
-    Entrez un login :<input type="text" name="loginreg"><br />
-    Entrez un mot de passe :<input type="password" name="pwdreg"><br />
-    Pseudo :<input type="text" name="pseudo"><br />
+    <label for="loginreg">Choisis un username</label>
+    <input type="text" name="loginreg"><br />
+    <label for="pwdreg">Choisis un password</label>
+    <input type="password" name="pwdreg"><br />
+    <label for="pseudo">Choisis un pseudo</label>
+    <input type="text" name="pseudo"><br />
     <input type="submit" value="Inscription" name="register">
 </form>

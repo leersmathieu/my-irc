@@ -38,8 +38,11 @@
     }
 
 ?>
+
 <form action="" method="post">
-    login :<input type="text" name="login"><br />
-    mot de passe :<input type="password" name="pwd"><br />
-    <input type="submit" value="Connexion" name="connection">
+        <label for="login">login</label>
+        <input type="text" name="login"><br />
+        <label for="password">password</label>
+        <input type="password" name="pwd"><br />
+        <input type="submit" value="Connexion" name="connection">
 </form>
