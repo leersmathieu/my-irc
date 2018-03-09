@@ -1,6 +1,8 @@
 <?php
     if (isset($_POST['dc'])){ // Si on appuie sur disconnect ...
 
+        sanitize($_POST['dc']);
+
         // On détruit les variables de notre session
         session_unset ();
 

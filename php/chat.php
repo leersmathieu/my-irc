@@ -2,7 +2,7 @@
 
     if (!empty($_POST['message']) AND isset($_POST['message'])){ 
 
-        $msg = $_POST['message'];
+        $msg = sanitize($_POST['message']);
         
         $prequest = $conn->query("SELECT id
                                     FROM user

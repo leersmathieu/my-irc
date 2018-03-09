@@ -22,12 +22,20 @@
     
     if ( isset($_POST['connection'])){ // si on appuie sur connection
 
+        sanitize($_POST['connection']);
+
          if( $number > 0) { // et que l'identifiant existe dans la base de donnée
 
             
-            $_SESSION['login'] = $_POST['login'];               //alors le login devient la session
-            $_SESSION['pwd'] = $_POST['pwd'];                   //
-            $_SESSION['pseudo'] = $table_pseudo[0]['pseudo'];   // et on récupère aussi le pseudo dans la session
+            $sessionlogin = htmlspecialchars($_POST['login']);               
+            $sessionpwd = htmlspecialchars($_POST['pwd']);                   
+            $sessionpseudo = htmlspecialchars($table_pseudo[0]['pseudo']);  
+
+                //recupération variable dans session avec sécurité//
+                
+            $_SESSION['login'] = sanitize($sessionlogin);               
+            $_SESSION['pwd'] = sanitize($sessionpwd);                   
+            $_SESSION['pseudo'] = sanitize($sessionpseudo);            
             // print_r ($_SESSION['pseudo']);
             
 
