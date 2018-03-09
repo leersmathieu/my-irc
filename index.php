@@ -1,6 +1,4 @@
-<?php
-   require "php/config.php"
-?>
+<?php require "php/config.php" ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -27,7 +25,6 @@
                     </section>
                 </header>
             <?php endif; ?>
-
             <!-- IRC -->
             <?php if (isconnected()): ?>
                 <div class="menu-icon">
@@ -47,6 +44,7 @@
                     </form>
                 </div>
             <?php endif; ?>
+            <!-- FOOTER -->
             <footer>
                 <?php require "php/footer.php" ?>
             </footer>

@@ -1,12 +1,14 @@
 <?php
 
-    if (!empty($_POST['message'])){
+    if (!empty($_POST['message']) AND isset($_POST['message'])){ 
 
         $msg = $_POST['message'];
         
         $prequest = $conn->query("SELECT id
                                     FROM user
                                     WHERE name = '".$_SESSION['login']."'");
+
+                                    // on récupère l'id de l'user connecté a la session
 
         $user_id = $prequest->fetch();
 
@@ -15,10 +17,8 @@
                                 (msg, user_id) 
                                 VALUES( ?, ?)");
 
-        $request->execute(array($msg, $user_id['id']
-        ));
+        $request->execute(array($msg, $user_id['id'])); // on envoie le message ainsi que l'user_id dans la database
 
-        
     }
 
     $lastmess = $conn->query("SELECT *
@@ -26,19 +26,20 @@
                                 JOIN user 
                                 ON user.id = message.user_id 
                                 ORDER BY message.id 
-                                DESC LIMIT 0,9
+                                DESC LIMIT 0,10
                                 ");
+                    // on sélectionne tout dans la table message ainsi que l'user id correspondant
 
-    $lastmess = $lastmess->fetchAll(PDO::FETCH_ASSOC);
+    $lastmess = $lastmess->fetchAll(PDO::FETCH_ASSOC); // on récupère le tout dans un tableau associatif
 
-    for($i = sizeof($lastmess)-1; $i >= 0; $i--)
-    {
-        $value = $lastmess[$i];
+    for($i = sizeof($lastmess)-1; $i >= 0; $i--){ //pour chaque ligne du tableau...
 
-        echo "<h2>".$value['pseudo']."</h2>".
+        $value = $lastmess[$i]; // on récupère les valeurs du tableau pour chaque ligne
+        // print_r($lastmess[$i]);
+
+        echo "<h2>".$value['pseudo']."</h2>". //on indique ce qu'on veux afficher
         "<p>".$value['msg']."</p>"."<br />";
 
     } 
-    // print_r($lastmess)
     
 ?>

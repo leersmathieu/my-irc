@@ -1,5 +1,5 @@
 <?php
-    if (isset($_POST['dc'])){
+    if (isset($_POST['dc'])){ // Si on appuie sur disconnect ...
 
         // On détruit les variables de notre session
         session_unset ();
@@ -13,6 +13,7 @@
     }
 ?>
 
+<!-- Bouton disconnect -->
 <form action="" method="post" name="disconnect">
     <input type="submit" value="Disconnect" name="dc">
 </form>

@@ -1,43 +1,41 @@
 <?php
-    $request = $conn->prepare("SELECT count(*)
+    $request = $conn->prepare("SELECT count(*) 
                                 FROM user
                                 WHERE name = ? AND mdp = ?");
+                                // compte le nombre de ligne ou la condition est respectée ( 0 ou 1 en général )
 
     $request->execute(array($_POST['login'],$_POST['pwd']));
-    $number = $request->fetchColumn();
-    
-$request = $conn->prepare("SELECT pseudo
+
+    $number = $request->fetchColumn(); // récupération du nombre
+
+    $request = $conn->prepare("SELECT pseudo
                             FROM user
                             WHERE name = ? AND mdp = ?");
-$request->execute(array($_POST['login'],$_POST['pwd']));
+                            // récupère le pseudo correspondant au login
 
-$table_pseudo=$request->fetchAll(PDO::FETCH_ASSOC);
-// print_r($table_pseudo);
+    $request->execute(array($_POST['login'],$_POST['pwd']));
+
+    $table_pseudo=$request->fetchAll(PDO::FETCH_ASSOC); //récupération du pseudo dans un tableau
+    // print_r($table_pseudo);
 
 
     
-    if ( isset($_POST['connection'])){
+    if ( isset($_POST['connection'])){ // si on appuie sur connection
 
-         if( $number > 0) {
+         if( $number > 0) { // et que l'identifiant existe dans la base de donnée
 
-            // echo $number;
             
-            // on démarre la session
-            // session_start ();
-            echo "session start";
-
-            // on enregistre les paramètres dans des variables
-            $_SESSION['login'] = $_POST['login'];
-            $_SESSION['pwd'] = $_POST['pwd'];
-            $_SESSION['pseudo'] = $table_pseudo[0]['pseudo'];
+            $_SESSION['login'] = $_POST['login'];               //alors le login devient la session
+            $_SESSION['pwd'] = $_POST['pwd'];                   //
+            $_SESSION['pseudo'] = $table_pseudo[0]['pseudo'];   // et on récupère aussi le pseudo dans la session
             // print_r ($_SESSION['pseudo']);
             
 
-            header ('location: index.php');
-    }
+            header ('location: index.php'); // refresh de la page //
+        }
 
-        
         else {
+
             // si info non valide, on utilise alors un petit script pour alerter
             echo '<body onLoad="alert(\'Membre non reconnu...\')">';
         
@@ -46,11 +44,11 @@ $table_pseudo=$request->fetchAll(PDO::FETCH_ASSOC);
     }
 
 ?>
-
+<!-- Formulaire login -->
 <form action="" method="post">
-        <label for="login">login</label>
-        <input type="text" name="login"><br />
-        <label for="password">password</label>
-        <input type="password" name="pwd"><br />
-        <input type="submit" value="Connexion" name="connection">
+    <label for="login">login</label>
+    <input type="text" name="login"><br />
+    <label for="password">password</label>
+    <input type="password" name="pwd"><br />
+    <input type="submit" value="Connexion" name="connection">
 </form>

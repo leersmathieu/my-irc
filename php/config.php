@@ -1,22 +1,26 @@
 <?php
-    session_start();
-    $servername = "localhost";
-    $username = "root";
-    $password = "root";
+    session_start(); //la session démarre dés le début
+    
+    $servername = "localhost";  //
+    $username = "root";         // <== variable connection
+    $password = "root";         //
 
     try {
         $conn = new PDO("mysql:host=$servername;dbname=irc", $username, $password);
-        // set the PDO error mode to exception
+        
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        // echo "Connected successfully";
+        
         }
+                                // CONNECTION //
     catch(PDOException $e)
         {
         echo "Connection failed: " . $e->getMessage();
         }
 
+/////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    function isconnected(){
+    function isconnected(){ // Fonction 'est connecté' 
+
         if (!isset($_SESSION['login']) OR !isset($_SESSION['pwd'])){
             return False;
         }
