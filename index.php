@@ -33,22 +33,8 @@
                 <section class='new'>
                     <h2> Welcome to the chat </h2>
                 </section>
-                <section class="message">
-                    <?php require "php/chat.php" ?>
-                </section>
-                <div class='send'>
-                    <form action="" method="post" name="sending">
-                        <input class="textarea" type="text" placeholder="Type here!" name="message" autofocus/>
-                        <!-- <input type="submit" name="send" value="envoyer"> -->
-                        <div class="emojis"></div>
-                    </form>
-                </div>
+                <iframe id="frame_1" src="php/chat.php" frameborder="0" scrolling="auto"></iframe> <!-- iframe = mort -->
             <?php endif; ?>
-            <!-- FOOTER -->
-            <footer>
-                <?php require "php/footer.php" ?>
-            </footer>
         </div>
     </body>
-
 </html>

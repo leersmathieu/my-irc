@@ -1,4 +1,14 @@
+<head>
+    <meta http-equiv="refresh" content="15">
+    <link rel="stylesheet" href="../stylesheets/style.css">
+</head>
+
+<section class="message">
+                             
 <?php
+
+    require "config.php";
+
 
     if (!empty($_POST['message']) AND isset($_POST['message'])){ 
 
@@ -18,7 +28,8 @@
                                 VALUES( ?, ?)");
 
         $request->execute(array($msg, $user_id['id'])); // on envoie le message ainsi que l'user_id dans la database
-
+        
+        
     }
 
     $lastmess = $conn->query("SELECT *
@@ -40,6 +51,18 @@
         echo "<h2>".$value['pseudo']."</h2>". //on indique ce qu'on veux afficher
         "<p>".$value['msg']."</p>"."<br />";
 
+        
+
     } 
     
+    
 ?>
+</section>
+<div class='send'>
+    <form action="" method="post" name="sending">
+        <input class="textarea" type="text" placeholder="Type here!" name="message" autofocus="auto" />
+    </form>
+</div>
+<footer>
+    <?php require "footer.php" ?>
+</footer>

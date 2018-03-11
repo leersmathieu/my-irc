@@ -123,23 +123,36 @@ body {
         background: rgba(57, 202, 173, 0.9);
     }
 
-    .message {
-        float: left;
-        width: 100%;
-        // height: 80%;
-        /* margin: 10px 0; */
-        margin-left: 20px;
-        margin-top: 20px;
-        p {
-            font-size: 0.8em;
-            width: 90%;
-            margin: 5px 0;
-            margin-left: 60px;
-            background-color: #fff;
-            padding: 5px;
-        }
+    
+}
+
+
+iframe {
+    width: 100%;
+    height: 82vh;
+    scroll: auto;
+    body {
+        background-color: #2F2E33;
+    }
+    
+}
+.message {
+    float: left;
+    width: 100%;
+    // margin-left: 20px;
+    // margin-top: 20px;
+    background-color: rgb(190, 190, 190);
+    
+    p {
+        font-size: 0.8em;
+        width: 90%;
+        margin: 5px 0;
+        margin-left: 60px;
+        background-color: #fff;
+        padding: 5px;
     }
 }
+
 
 .send {
     width: 100%;
@@ -182,7 +195,7 @@ h2:after {
 
 footer {
     width: 100%;
-    height: 10%;
+    height: 8%;
     background: rgb(64, 45, 133);
     color: rgb(216, 216, 105);
     padding: 10px;
