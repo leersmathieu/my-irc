@@ -12,7 +12,7 @@ Le **dossier assets** contiendra toutes les images du site
 le **dossier stylesheets** contient les feuilles de style *réalisée en scss*  
 
 
-##Branche Iframe
+## Branche Iframe
 
 Une branche *iframe* est présente sur ce git et comporte les dernières nouveauté du chat tel que la fonction "hashage" sur le mot de passe ainsi que la fonction Iframe pour refresh la page.  
   
