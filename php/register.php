@@ -7,11 +7,10 @@
         if (isset($_POST['loginreg']) AND isset($_POST['pwdreg']) AND isset($_POST['pseudo'])) { //si...
             
             $login_register = htmlspecialchars($_POST['loginreg']);
-            $pwd_register = htmlspecialchars($_POST['pwdreg']); // on récupère les valeurs POST dans des variables et on up la sécurité
+            $pwd_register = password_hash($_POST['pwdreg'], PASSWORD_DEFAULT); // on récupère les valeurs POST dans des variables et on up la sécurité
             $pseudo = htmlspecialchars($_POST['pseudo']);
 
-            $login_register = sanitize($login_register);
-            $pwd_register = sanitize($pwd_register); 
+            $login_register = sanitize($login_register); 
             $pseudo = sanitize($pseudo);
 
             $registration = $conn->prepare("INSERT INTO user  

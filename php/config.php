@@ -41,13 +41,13 @@
 
             if(is_array($key)){                 // si la valeur est un tableau...
 
-            $sanitized_variable = filter_var_array($key, $filter);
+                $sanitized_variable = filter_var_array($key, $filter);
 
             }
 
             else {                              // sinon ...
 
-            $sanitized_variable = filter_var($key, $filter);
+                $sanitized_variable = filter_var($key, $filter);
 
             }
 
