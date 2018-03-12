@@ -6,11 +6,11 @@
         $request = $conn->prepare("SELECT *
                                 FROM user
                                 WHERE name = ?");
-                                // récupère le pseudo correspondant au login
+                                // récupère la ligne correspondant au login
 
         $request->execute(array($_POST['login']));
 
-        $table_pseudo=$request->fetch();//récupération du pseudo dans un tableau
+        $table_pseudo=$request->fetch();//récupération de la table user dans un tableau
 
 
         if(password_verify($_POST['pwd'], $table_pseudo['mdp'])){

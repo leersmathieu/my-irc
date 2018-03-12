@@ -34,6 +34,10 @@
                     <h2> Welcome to the chat </h2>
                 </section>
                 <iframe id="frame_1" src="php/chat.php" frameborder="0" scrolling="auto"></iframe> <!-- iframe = mort -->
+                <?php require "php/send.php" ?>
+                <footer>
+                    <?php require "php/footer.php" ?>
+                </footer>
             <?php endif; ?>
         </div>
     </body>
