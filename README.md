@@ -1,6 +1,11 @@
+## Test it online
+
+http://leersmathieu.com/becode/my-irc/index.php
+
 ## My-irc
 
-Réalisation de mon premier chat (irc) via le système de _SESSION associé à une base de donnée ( SQL )
+Réalisation de mon premier chat (irc) via le système de SESSION associé à une base de donnée ( SQL )  
+Password Hashé
 
 ## Structure
 
